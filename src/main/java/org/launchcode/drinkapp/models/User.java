@@ -1,5 +1,7 @@
 package org.launchcode.drinkapp.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.*;
@@ -24,7 +26,7 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 3, max = 50, message = "Password must be between 3 and 50 characters")
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
     public int getId() {
@@ -64,6 +66,8 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(password);
+        this.password = encodedPassword;
     }
 }

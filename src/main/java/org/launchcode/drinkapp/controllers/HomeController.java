@@ -40,4 +40,11 @@ public class HomeController {
         return index();
     }
 
+    @GetMapping("/users")
+    public String listUsers() {
+//        List<User> listUsers = (List<User>) userRepo.findAll();
+//        model.addAttribute("listUsers", listUsers);
+
+        return "UserPage";
+    }
 }

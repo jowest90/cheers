@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -6,6 +7,8 @@
     <title>Cheers! | User Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar sticky-top p-3 navbar-light bg-light">
@@ -28,6 +31,7 @@
         <li class="nav-item">
             <a class="nav-link" href="#">About</a>
         </li>
+        <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
     </ul>
     <div class="input"></div>
     <input type="text" placeholder="Search..">
@@ -38,7 +42,7 @@
             <div class="nav flex-column">
                 <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-person-square" style="font-size: 1.875rem; padding: 10px"></i>
-                    @Norm Peterson</a>
+                    <b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
                     Friends</a>

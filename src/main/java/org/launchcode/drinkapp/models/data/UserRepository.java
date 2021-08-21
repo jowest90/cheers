@@ -11,4 +11,6 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface UserRepository extends CrudRepository<User, Integer> {
+    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    public User findByEmail(String email);
 }
