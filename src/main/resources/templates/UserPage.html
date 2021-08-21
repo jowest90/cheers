@@ -39,48 +39,60 @@
 </nav>
 
 <div class="card-group">
-    <div class="card">
+    <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%">
         <div class="card-body">
             <div class="nav flex-column">
                 <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-person-square" style="font-size: 1.875rem"></i>
-                    &nbsp @Norm Peterson
+                    <i class="bi bi-person-square" style="font-size: 1.875rem; padding: 10px"></i>
+                    @Norm Peterson
                 </a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-people" style="font-size: 1.875rem"></i>
-                    &nbsp Friends
+                    <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
+                    Friends
                 </a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-cup-straw" style="font-size: 1.875rem"></i>
-                    &nbsp Drinks
+                    <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
+                    Drinks
                 </a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-gear" style="font-size: 1.875rem"></i>
-                    &nbsp Preferences
+                    <i class="bi bi-gear" style="font-size: 1.875rem; padding: 10px"></i>
+                    Preferences
                 </a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-pencil-square" style="font-size: 1.875rem"></i>
-                    &nbsp Messages
+                    <i class="bi bi-pencil-square" style="font-size: 1.875rem; padding: 10px"></i>
+                    Messages
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <i class="bi bi-image"></i>
+    <div class="card" style="border: none; flex: 1 0 75%; max-width: 75%">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title">Submit New Drink</h5>
+            <form>
+                <label for="exampleFormControlFile1">Upload image</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1"></input>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Drink Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="...">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="exampleFormControlSelect1">Type of Drink</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Beer</option>
+                        <option>Wine</option>
+                        <option>Cocktail</option>
+                        <option>Soda</option>
+                        <option>Juice</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary my-1">Submit</button>
+            </form>
         </div>
-    </div>
-
-    <div class="card">
-        <i class="bi bi-image"></i>
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Activity</h5>
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">Last updated Sat Aug 21</small></p>
         </div>
     </div>
 
