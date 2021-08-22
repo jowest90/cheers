@@ -17,7 +17,7 @@ public class HomeController {
     @Autowired
     private UserRepository userRepo;
 
-    @GetMapping("")
+    @GetMapping("/index")
     public String index(){
         return "index";
     }
