@@ -22,6 +22,11 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/settings")
+    public String settings(){
+        return "settings";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());

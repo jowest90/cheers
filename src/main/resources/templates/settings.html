@@ -41,7 +41,7 @@
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
                     Drinks</a>
-                <a class="nav-item nav-link" th:href="@{/settings}" style="display: flex; align-items: center">
+                <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-gear" style="font-size: 1.875rem; padding: 10px"></i>
                     Preferences</a>
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
@@ -52,35 +52,10 @@
     </div>
     <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
         <div class="card-body">
-            <h5 class="card-title">Submit New Drink</h5>
-            <form>
-                <label for="exampleFormControlFile1">Upload image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" />
-                <div class="form-group col-md-4">
-                    <label for="formGroupExampleInput">Drink Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="..." />
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleFormControlSelect1">Type of Drink</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Beer</option>
-                        <option>Wine</option>
-                        <option>Cocktail</option>
-                        <option>Soda</option>
-                        <option>Juice</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary my-1">Submit</button>
-            </form>
+            <!-- middle top body -->
         </div>
         <div class="card-body">
-            <h5 class="card-title">Activity</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="card-text"><small class="text-muted">Last updated <span id='date-time'></span></small></p>
-            <script>
-                var dt = new Date();
-                document.getElementById('date-time').innerHTML=dt;
-            </script>
+            <!-- middle bottom body -->
         </div>
     </div>
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
