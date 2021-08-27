@@ -16,7 +16,7 @@ form {
 }
 
 
-input[type=text], input[type=password], input[type=date] {
+input[type=text], input[type=password], input[type=email] {
    width: 50%;
    padding: 10px;
    margin: 5px 0 22px 0;
