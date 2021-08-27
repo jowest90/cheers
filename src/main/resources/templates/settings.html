@@ -52,7 +52,27 @@
     </div>
     <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
         <div class="card-body">
-            <!-- middle top body -->
+            <form th:action="@{/update_register}" th:object="${user}"
+                  method="post" style="max-width: 600px; margin: 0 auto;">
+                <p>Please fill in this form to create an account.</p>
+                <label>First :</label>
+                <input type="text" th:field="*{first}" class="form-control"
+                /><br>
+                <label>Last :</label>
+                <input type="text" th:field="*{last}" class="form-control"
+                /><br>
+                <label>Email id :</label>
+                <input type="email" th:field="*{email}" class="form-control" required /><br>
+                <label>Password :</label>
+                <input type="password" th:field="*{password}" class="form-control"
+                       required minlength="6"/><br>
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        </form>
         </div>
         <div class="card-body">
             <!-- middle bottom body -->
