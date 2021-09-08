@@ -68,25 +68,25 @@
                 <div class="form-group col-md-2">
                     <label>Is it Carbonated?</label>
                     <select class="form-control" th:field="*{carbonated}">
-                        <option th:value="*{carbonated}">yes</option>
-                        <option th:value="*{carbonated}">no</option>
+                        <option th:value="true" th:field="*{carbonated}">yes</option>
+                        <option th:value="false" th:field="*{carbonated}">no</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label>Is it Alcoholic?</label>
                     <select class="form-control" th:field="*{alcoholic}">
-                        <option th:value="*{alcoholic}">yes</option>
-                        <option th:value="*{alcoholic}">no</option>
+                        <option th:value="true" th:field="*{alcoholic}">yes</option>
+                        <option th:value="false" th:field="*{alcoholic}">no</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label>Type of Drink</label>
                     <select class="form-control" th:field="*{type}">
-                        <option th:value="*{type}">Beer</option>
-                        <option th:value="*{type}">Wine</option>
-                        <option th:value="*{type}">Cocktail</option>
-                        <option th:value="*{type}">Soda</option>
-                        <option th:value="*{type}">Juice</option>
+                        <option th:value="Beer" th:field="*{type}">Beer</option>
+                        <option th:value="Wine" th:field="*{type}">Wine</option>
+                        <option th:value="Cocktail" th:field="*{type}">Cocktail</option>
+                        <option th:value="Soda" th:field="*{type}">Soda</option>
+                        <option th:value="Juice" th:field="*{type}">Juice</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary my-1">Submit</button>
