@@ -7,6 +7,7 @@
     <title>Cheers! | User Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -21,7 +22,7 @@
             <a class="nav-link active" th:href="@{/users}">User Page</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
+            <a class="nav-link disabled" th:href="@{/register}" tabindex="-1">Create User</a>
         </li>
         <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
     </ul>
@@ -53,20 +54,39 @@
     <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
         <div class="card-body">
             <h5 class="card-title">Activity</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="card-text"><small class="text-muted">Last updated <span id='date-time'></span></small></p>
-            <script>
-                var dt = new Date();
-                document.getElementById('date-time').innerHTML=dt;
-            </script>
+            <form th:action="@{/update}" th:object="${user}"
+                  method="post" style="max-width: 600px; margin: 0 auto;">
+                <p>Please fill in this form to create an account.</p>
+                <label>First :</label>
+                <input type="text" class="form-control"
+                /><br>
+                <label>Last :</label>
+                <input type="text" class="form-control"
+                /><br>
+                <label>Email id :</label>
+                <input type="email" class="form-control" required /><br>
+                <label>Password :</label>
+                <input type="password" class="form-control"
+                       required minlength="6"/><br>
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
         </div>
     </div>
+    <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
+        <div class="card-body">
+            <h5 class="card-title">Another Section</h5>
+            <p class="card-text">Some text.</p>
+        </div>
+    </div>
+</div>
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
             <div class="card-body">
                 <h5 class="card-title">Another Section</h5>
                 <p class="card-text">Some text.</p>
             </div>
     </div>
-</div>
 </body>
 </html>

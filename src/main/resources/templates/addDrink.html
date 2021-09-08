@@ -21,7 +21,7 @@
             <a class="nav-link active" th:href="@{/users}">User Page</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
+            <a class="nav-link disabled" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
         </li>
         <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
     </ul>
@@ -53,19 +53,51 @@
     <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
         <div class="card-body">
             <h5 class="card-title">Activity</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="card-text"><small class="text-muted">Last updated <span id='date-time'></span></small></p>
-            <script>
-                var dt = new Date();
-                document.getElementById('date-time').innerHTML=dt;
-            </script>
+            <form th:action="@{/process_drink}" th:object="${drink}"
+                  method="post" style="max-width: 600px; margin: 0 auto;">
+                <!--                <label for="exampleFormControlFile1">Upload image</label>-->
+                <!--                <input type="file" class="form-control-file" id="exampleFormControlFile1" />-->
+                <div class="form-group col-md-4">
+                    <label>Drink Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="..." />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Brand</label>
+                    <input type="text" class="form-control" th:field="*{brand}" placeholder="..." />
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Is it Carbonated?</label>
+                    <select class="form-control" th:field="*{carbonated}">
+                        <option th:value="*{carbonated}">yes</option>
+                        <option th:value="*{carbonated}">no</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Is it Alcoholic?</label>
+                    <select class="form-control" th:field="*{alcoholic}">
+                        <option th:value="*{alcoholic}">yes</option>
+                        <option th:value="*{alcoholic}">no</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Type of Drink</label>
+                    <select class="form-control" th:field="*{type}">
+                        <option th:value="*{type}">Beer</option>
+                        <option th:value="*{type}">Wine</option>
+                        <option th:value="*{type}">Cocktail</option>
+                        <option th:value="*{type}">Soda</option>
+                        <option th:value="*{type}">Juice</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary my-1">Submit</button>
+            </form>
         </div>
     </div>
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
-            <div class="card-body">
-                <h5 class="card-title">Another Section</h5>
-                <p class="card-text">Some text.</p>
-            </div>
+        <div class="card-body">
+            <h5 class="card-title">Another Section</h5>
+            <p class="card-text">Some text.</p>
+        </div>
     </div>
 </div>
 </body>
