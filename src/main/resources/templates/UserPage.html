@@ -15,10 +15,10 @@
     <a class="navbar-brand">
         <img src="../images/cheerslogo.png" width="90" height="30" class="d-inline-block align-top" alt="">
         <!-- image obtained from "Clipart Library" with personal use license at http://clipart-library.com/clipart/7171.htm -->
-        <span class="fs-4">Cheers!</span></a>
+        <span class="fs-4">Cheers<b>[[${#request.userPrincipal.principal.fullName}]]</b>!</span></a>
     <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-            <a class="nav-link active" th:href="@{/users}">User Page</a>
+            <a class="nav-link active disabled" th:href="@{/users}">User Page</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
@@ -32,21 +32,9 @@
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; overflow-x: scroll; height: 80vh; overflow-y: scroll">
         <div class="card-body">
             <div class="nav flex-column">
-                <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-person-square" style="font-size: 1.875rem; padding: 10px"></i>
-                    <b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
-                <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
-                    Friends</a>
-                <a class="nav-item nav-link" th:href="@{/addDrink}" style="display: flex; align-items: center">
-                    <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
-                    Drinks</a>
                 <a class="nav-item nav-link" th:href="@{/settings}" style="display: flex; align-items: center">
                     <i class="bi bi-gear" style="font-size: 1.875rem; padding: 10px"></i>
                     Preferences</a>
-                <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
-                    <i class="bi bi-pencil-square" style="font-size: 1.875rem; padding: 10px"></i>
-                    Messages</a>
             </div>
         </div>
     </div>
