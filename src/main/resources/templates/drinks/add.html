@@ -1,26 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-<body class="container  body-content">
-<h1>Add Drink</h1>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Cheers! | User Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
 
-<nav th:replace="fragments :: page-header"></nav>
-
-<form method="post" style="max-width:600px;">
-    <div class="form-group">
-        <label th:for="name">Drink Name</label>
-        <input class="form-control" th:field="${drink.name}" />
-        <span th:errors="${drink.name}" class="error"></span>
+<nav class="navbar sticky-top p-3 navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="../images/cheerslogo.png" width="90" height="30" class="d-inline-block align-top" alt="">
+        <!-- image obtained from "Clipart Library" with personal use license at http://clipart-library.com/clipart/7171.htm -->
+        <span class="fs-4">Cheers<b>[[${#request.userPrincipal.principal.fullName}]]</b>!</span></a>
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/users}">User Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
+        </li>
+        <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+    </ul>
+    <div class="input"></div>
+    <input type="text" placeholder="Search..">
+</nav>
+<div class="card-group">
+    <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; overflow-x: scroll; height: 80vh; overflow-y: scroll">
+        <div class="card-body">
+            <div class="nav flex-column">
+                <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
+                    <i class="bi bi-person-square" style="font-size: 1.875rem; padding: 10px"></i>
+                    <b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
+                <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
+                    <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
+                    Friends</a>
+                <a class="nav-item nav-link disabled" th:href="@{/drinks}" style="display: flex; align-items: center">
+                    <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
+                    Drinks</a>
+                <a class="nav-item nav-link" th:href="@{/settings}" style="display: flex; align-items: center">
+                    <i class="bi bi-gear" style="font-size: 1.875rem; padding: 10px"></i>
+                    Preferences</a>
+                <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
+                    <i class="bi bi-pencil-square" style="font-size: 1.875rem; padding: 10px"></i>
+                    Messages</a>
+            </div>
+        </div>
     </div>
+    <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
+        <div class="card-body">
+            <form method="post" style="max-width:600px;">
+                <div class="form-group">
+                    <label th:for="name">Drink Name</label>
+                    <input class="form-control" th:field="${drink.name}" />
+                    <span th:errors="${drink.name}" class="error"></span>
+                </div>
 
-    <div class="form-group">
-        <label th:for="rating">Drink Rating</label>
-        <input class="form-control" th:field="${drink.rating}" />
-        <span th:errors="${drink.rating}" class="error"></span>
+                <div class="form-group">
+                    <label th:for="rating">Drink Rating</label>
+                    <input class="form-control" th:field="${drink.rating}" />
+                    <span th:errors="${drink.rating}" class="error"></span>
+                </div>
+
+                <input type="submit" value="Add Drink" />
+            </form>
+        </div>
     </div>
-
-    <input type="submit" value="Add Drink" />
-</form>
-
+    <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
+        <div class="card-body">
+            <h5 class="card-title">Another Section</h5>
+            <p class="card-text">Some text.</p>
+        </div>
+    </div>
+</div>
 </body>
+<!--<body class="container  body-content">-->
+<!--<h1>Add Drink</h1>-->
+
+<!--<nav th:replace="fragments :: page-header"></nav>-->
+
+<!--<form method="post" style="max-width:600px;">-->
+<!--    <div class="form-group">-->
+<!--        <label th:for="name">Drink Name</label>-->
+<!--        <input class="form-control" th:field="${drink.name}" />-->
+<!--        <span th:errors="${drink.name}" class="error"></span>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label th:for="rating">Drink Rating</label>-->
+<!--        <input class="form-control" th:field="${drink.rating}" />-->
+<!--        <span th:errors="${drink.rating}" class="error"></span>-->
+<!--    </div>-->
+
+<!--    <input type="submit" value="Add Drink" />-->
+<!--</form>-->
+
+<!--</body>-->
 </html>
