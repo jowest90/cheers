@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Cheers! | User Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments :: header"></div>
+
+<div class="container body-content">
+    <a class="nav-item nav-link disabled" href="#" style="display: flex; align-items: center">
+        <i class="bi bi-person-square" style="font-size: 1.875rem; padding: 10px"></i>
+        <b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <table class="drink-listing">
+        <tr th:each="drink : ${drinks}">
+            <td>
+                <p>
+                    Drink Id:
+                    <a th:href="@{'/view/' + ${drink.id}}" th:text="${drink.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + drink.name}"></p>
+                <p>
+                    Drink:
+                    <a th:href="@{'/drinks/view/' + ${drink.id}}" th:text="${drink.name}"></a>
+                </p>
+                <p>
+                    Rating:
+                <ul th:each="rating : ${drink.rating}">
+                    <li>
+                        <a th:href="@{'/ratings/view/' + ${rating.id}}" th:text="${drink.rating}"></a>
+                    </li>
+                </ul>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
+<h1>Add Drink</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Drink Name</label>
+        <input class="form-control" th:field="${drink.name}" />
+        <span th:errors="${drink.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="rating">Drink Rating</label>
+        <input class="form-control" th:field="${drink.rating}" />
+        <span th:errors="${drink.rating}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Drink" />
+</form>
+
+</body>
+</html>
