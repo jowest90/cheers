@@ -38,7 +38,7 @@
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
                     Friends</a>
-                <a class="nav-item nav-link disabled" th:href="@{/drinks}" style="display: flex; align-items: center">
+                <a class="nav-item nav-link" th:href="@{/drinks}" style="display: flex; align-items: center">
                     <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
                     Drinks</a>
                 <a class="nav-item nav-link" th:href="@{/settings}" style="display: flex; align-items: center">
@@ -54,11 +54,27 @@
         <div class="card-body">
             <h1 th:text="${'Drink: ' + drink.name}">Default Title</h1>
 
-            <nav th:replace="fragments :: page-header"></nav>
-
             <div class="drink-listing">
-                <p th:text="${'Drink: ' + drink.name}"></p>
-                <p th:text="${'Rating: ' + drink.rating}"></p>
+                <p th:text="${'Type: ' + drink.type}"></p>
+                <p th:text="${'Brand: ' + drink.brand}"></p>
+                <p th:text="${'alcoholic?: ' + drink.alcoholic}"></p>
+                <p th:text="${'carbonated?: ' + drink.carbonated}"></p>
+<!--                <p th:text="${'Rating: ' + drink.rating}"></p>-->
+<!--                <form th:action="@{/process_rating}" th:object="${rating}"-->
+<!--                      method="post" style="max-width: 600px; margin: 0 auto;">-->
+<!--                    <div class="form-group col-md-2">-->
+<!--                        <label>Rating</label>-->
+<!--                        <select class="form-control" th:field="*{rating}">-->
+<!--                            <option th:value="1" th:field="*{rating}">1</option>-->
+<!--                            <option th:value="2" th:field="*{rating}">2</option>-->
+<!--                            <option th:value="3" th:field="*{rating}">3</option>-->
+<!--                            <option th:value="4" th:field="*{rating}">4</option>-->
+<!--                            <option th:value="5" th:field="*{rating}">5</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn btn-primary my-1">Submit</button>-->
+<!--                </form>-->
+            </div>
         </div>
     </div>
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
