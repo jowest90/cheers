@@ -52,21 +52,29 @@
     </div>
     <div class="card" style="border: none; flex: 1 0 50%; max-width: 50%; height: 80vh; overflow-y: scroll">
         <div class="card-body">
-            <form method="post" style="max-width:600px;">
-                <div class="form-group">
-                    <label th:for="name">Drink Name</label>
-                    <input class="form-control" th:field="${drink.name}" />
-                    <span th:errors="${drink.name}" class="error"></span>
-                </div>
+            <h1 th:text="${'Drink: ' + drink.name}">Default Title</h1>
 
-                <div class="form-group">
-                    <label th:for="rating">Drink Rating</label>
-                    <input class="form-control" th:field="${drink.rating}" />
-                    <span th:errors="${drink.rating}" class="error"></span>
-                </div>
-
-                <input type="submit" value="Add Drink" />
-            </form>
+            <div class="drink-listing">
+                <p th:text="${'Type: ' + drink.type}"></p>
+                <p th:text="${'Brand: ' + drink.brand}"></p>
+                <p th:text="${'alcoholic?: ' + drink.alcoholic}"></p>
+                <p th:text="${'carbonated?: ' + drink.carbonated}"></p>
+                                <p th:text="${'Rating: ' + drink.rating}"></p>
+                                <form th:action="@{/add}" th:object="${rating}"
+                                      method="post" style="max-width: 600px; margin: 0 auto;">
+                                    <div class="form-group col-md-2">
+                                        <label>Rating</label>
+                                        <select class="form-control" th:field="*{rating}">
+                                            <option th:value="1" th:field="*{rating}">1</option>
+                                            <option th:value="2" th:field="*{rating}">2</option>
+                                            <option th:value="3" th:field="*{rating}">3</option>
+                                            <option th:value="4" th:field="*{rating}">4</option>
+                                            <option th:value="5" th:field="*{rating}">5</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary my-1">Submit</button>
+                                </form>
+            </div>
         </div>
     </div>
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; height: 80vh; overflow-y: scroll">
