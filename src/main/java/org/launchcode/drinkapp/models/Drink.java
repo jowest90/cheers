@@ -22,6 +22,9 @@ public class Drink {
     @Size(min = 3, max = 50, message = "Brand name must be between 3 and 50 characters")
     private String brand;
 
+//    @Size(min = 1,max = 5, message = "rating must be between 1-5")
+    private String rating;
+
     private boolean carbonated;
 
     private boolean alcoholic;
@@ -74,5 +77,13 @@ public class Drink {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

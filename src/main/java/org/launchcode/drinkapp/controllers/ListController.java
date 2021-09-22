@@ -1,11 +1,8 @@
 package org.launchcode.drinkapp.controllers;
 import org.launchcode.drinkapp.models.DrinkData;
 import org.launchcode.drinkapp.models.data.DrinkRepository;
-import org.launchcode.drinkapp.models.data.RatingRepository;
 import org.launchcode.drinkapp.models.data.UserRepository;
 import org.launchcode.drinkapp.models.Drink;
-import org.launchcode.drinkapp.models.Rating;
-import org.launchcode.drinkapp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +19,8 @@ public class ListController {
     @Autowired
     private DrinkRepository drinkRepository;
 
-    @Autowired
-    private RatingRepository ratingRepository;
+//    @Autowired
+//    private RatingRepository ratingRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -43,8 +40,8 @@ public class ListController {
         List drinks = (List<Drink>) drinkRepository.findAll();
         model.addAttribute("drinks", drinks);
 
-        List ratings = (List<Rating>) ratingRepository.findAll();
-        model.addAttribute("ratings", ratings);
+//        List ratings = (List<Rating>) ratingRepository.findAll();
+//        model.addAttribute("ratings", ratings);
 
         return "list";
     }

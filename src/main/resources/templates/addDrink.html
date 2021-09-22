@@ -88,6 +88,16 @@
                         <option th:value="Juice" th:field="*{type}">Juice</option>
                     </select>
                 </div>
+                <div class="form-group col-md-2">
+                    <label>Rating</label>
+                    <select class="form-control" th:field="*{rating}">
+                        <option th:value="1" th:field="*{rating}">1</option>
+                        <option th:value="2" th:field="*{rating}">2</option>
+                        <option th:value="3" th:field="*{rating}">3</option>
+                        <option th:value="4" th:field="*{rating}">4</option>
+                        <option th:value="5" th:field="*{rating}">5</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary my-1">Submit</button>
             </form>
         </div>
