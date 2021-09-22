@@ -1,10 +1,8 @@
 package org.launchcode.drinkapp.controllers;
 
 import org.launchcode.drinkapp.models.Drink;
-import org.launchcode.drinkapp.models.Rating;
 import org.launchcode.drinkapp.models.User;
 import org.launchcode.drinkapp.models.data.DrinkRepository;
-import org.launchcode.drinkapp.models.data.RatingRepository;
 import org.launchcode.drinkapp.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +21,8 @@ public class DrinkController {
     @Autowired
     private DrinkRepository drinkRepository;
 
-    @Autowired
-    private RatingRepository ratingRepository;
+//    @Autowired
+//    private RatingRepository ratingRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -46,25 +44,25 @@ public class DrinkController {
 //        return "drinks/add";
 //    }
 
-    @PostMapping("add")
-    public String processAddDrinkForm(@ModelAttribute @Valid Rating newRating,
-                                         Errors errors, Model model, @RequestParam int user_id,  @RequestParam int drink_id) {
-
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Drink");
-            return "drinks/add";
-        }
-
-        User user = userRepository.findById(user_id).orElse(new User());
-        newRating.setUser(user);
-
-        Drink employer = drinkRepository.findById(drink_id).orElse(new Drink());
-        newRating.setDrink(employer);
-
-        ratingRepository.save(newRating);
-
-        return "redirect:";
-    }
+//    @PostMapping("add")
+//    public String processAddDrinkForm(@ModelAttribute @Valid Rating newRating,
+//                                         Errors errors, Model model, @RequestParam int user_id,  @RequestParam int drink_id) {
+//
+//        if (errors.hasErrors()) {
+//            model.addAttribute("title", "Add Drink");
+//            return "drinks/add";
+//        }
+//
+//        User user = userRepository.findById(user_id).orElse(new User());
+//        newRating.setUser(user);
+//
+//        Drink employer = drinkRepository.findById(drink_id).orElse(new Drink());
+//        newRating.setDrink(employer);
+//
+//        ratingRepository.save(newRating);
+//
+//        return "redirect:";
+//    }
 
     @GetMapping("view/{drinkId}")
     public String displayViewDrink(Model model, @PathVariable int drinkId) {
@@ -74,7 +72,7 @@ public class DrinkController {
             Drink drink = (Drink) optDrink.get();
             model.addAttribute("drink", drink);
             model.addAttribute("users", userRepository.findAll());
-            model.addAttribute("rating", new Rating());
+//            model.addAttribute("rating", new Rating());
             return "drinks/view";
         } else {
             return "redirect:../";
