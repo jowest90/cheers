@@ -31,7 +31,7 @@
 <div class="container body-content">
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
     <form th:action="@{/search/results}" method = "post">
-        <h2>Search by:</h2>
+        <h2>Search</h2>
         <p>
             <span th:each="column : ${columns}">
                 <input
@@ -56,11 +56,6 @@
     <table class="drink-listing">
         <tr th:each="drink : ${drinks}">
             <td>
-                <p>
-                    Drink Id:
-                    <a th:href="@{'/view/' + ${drink.id}}" th:text="${drink.id}"></a>
-                </p>
-                <p th:text="${'Name: ' + drink.name}"></p>
                 <p>
                     Drink:
                     <a th:href="@{'/drinks/view/' + ${drink.id}}" th:text="${drink.name}"></a>
