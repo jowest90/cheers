@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Cheers! | Search</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar sticky-top p-3 navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="../images/cheerslogo.png" width="90" height="30" class="d-inline-block align-top" alt="">
+        <!-- image obtained from "Clipart Library" with personal use license at http://clipart-library.com/clipart/7171.htm -->
+        <span class="fs-4">Cheers<b>[[${#request.userPrincipal.principal.fullName}]]</b>!</span></a>
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link " th:href="@{/users}">User Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
+        </li>
+        <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+        <li class="nav-item"><a th:href="@{/search}" class="nav-link">Search</a></li>
+    </ul>
+</nav>
+
+<body>
+
+<div class="container body-content">
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search by:</h2>
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+    <table class="drink-listing">
+        <tr th:each="drink : ${drinks}">
+            <td>
+                <p>
+                    Drink Id:
+                    <a th:href="@{'/view/' + ${drink.id}}" th:text="${drink.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + drink.name}"></p>
+                <p>
+                    Drink:
+                    <a th:href="@{'/drinks/view/' + ${drink.id}}" th:text="${drink.name}"></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</div>
+</html>
