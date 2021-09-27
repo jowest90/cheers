@@ -23,9 +23,8 @@
             <a class="nav-link active disabled" th:href="@{/addDrink}" tabindex="-1">New Drink</a>
         </li>
         <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+        <li class="nav-item"><a th:href="@{/search}" class="nav-link">Search</a></li>
     </ul>
-    <div class="input"></div>
-    <input type="text" placeholder="Search..">
 </nav>
 <div class="card-group">
     <div class="card" style="border: none; flex: 1 0 25%; max-width: 25%; overflow-x: scroll; height: 80vh; overflow-y: scroll">
@@ -37,7 +36,7 @@
                 <a class="nav-item nav-link" href="#" style="display: flex; align-items: center">
                     <i class="bi bi-people" style="font-size: 1.875rem; padding: 10px"></i>
                     Friends</a>
-                <a class="nav-item nav-link" th:href="@{/list-drinks}" style="display: flex; align-items: center">
+                <a class="nav-item nav-link" th:href="@{/drinks}" style="display: flex; align-items: center">
                     <i class="bi bi-cup-straw" style="font-size: 1.875rem; padding: 10px"></i>
                     Drinks</a>
                 <a class="nav-item nav-link" th:href="@{/settings}" style="display: flex; align-items: center">
